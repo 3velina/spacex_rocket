@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
- :root {
+    :root {
         --light-gray: #f5f5f6;
         --barlow: 'Barlow', sans-serif;
         --roboto: 'Roboto', sans-serif;
@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-family: var(--roboto);
-        background-color: #fff;
+        background-color: var(--light-gray);
         height: 100vh;
     }
 
