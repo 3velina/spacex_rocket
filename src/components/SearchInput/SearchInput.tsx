@@ -1,11 +1,19 @@
 import { StyledSearchInput } from './style';
 
-const SearchInput = () => {
+interface ISearchInputProps {
+  setSearchTerm: (searchTerm: string) => void;
+}
+
+const SearchInput = ({ setSearchTerm }: ISearchInputProps) => {
   return (
     <StyledSearchInput>
-      <input type='text' placeholder='Search' />
+      <input
+        type='text'
+        placeholder='Search'
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <div className='search-icon'>
-        <img src='../../../search-icon.svg' alt='Search Icon' />
+        <img src='../../../public/search-icon.svg' alt='Search Icon' />
       </div>
     </StyledSearchInput>
   );
