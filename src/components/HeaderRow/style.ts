@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 export const StyledRow = styled.div`
   min-width: 1100px;
-  padding-right: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 26px;
   padding-left: 28px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex: 1;
 `;
 
 export const StyledCell = styled.div`
@@ -15,7 +18,7 @@ export const StyledCell = styled.div`
   font-weight: 500;
   text-align: end;
 
-  :first-child {
+  &:first-of-type {
     text-align: start;
   }
 `;

@@ -14,11 +14,11 @@ export const StyledCell = styled.div`
   flex: 1;
   padding: 10px;
   color: var(--text-secondary);
-  padding-right: 28px;
-  padding-left: 28px;
   text-align: end;
+  padding-right: 24px;
 
-  :first-child {
+  &:first-of-type {
     text-align: start;
+    padding-left: 30px;
   }
 `;
