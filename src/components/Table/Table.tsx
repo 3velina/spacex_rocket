@@ -1,5 +1,7 @@
-import TableColumn from '../TableColumn';
-import { StyledTable, StyledTableContainer } from './style';
+import TableRow from '../TableRow';
+import HeaderRow from '../HeaderRow';
+import { StyledTableContainer } from './style';
+import { useEffect } from 'react';
 
 interface TableProps {
   headers: string[];
@@ -17,17 +19,17 @@ const Table = ({ headers, rows, searchTerm, setResultCount }: TableProps) => {
       )
     : rows;
 
-  return (
-    <StyledTable>
-      <StyledTableContainer>
-        {headers.map((header) => {
-          const cells = filteredRows.map((row) => row[header]);
+  useEffect(() => {
+    setResultCount(filteredRows.length);
+  }, [filteredRows]);
 
-          setResultCount(cells.length);
-          return <TableColumn key={header} header={header} cells={cells} />;
-        })}
-      </StyledTableContainer>
-    </StyledTable>
+  return (
+    <StyledTableContainer>
+      <HeaderRow headers={headers} />
+      {filteredRows.map((row, rowIndex) => (
+        <TableRow key={rowIndex} row={row} headers={headers} />
+      ))}
+    </StyledTableContainer>
   );
 };
 
