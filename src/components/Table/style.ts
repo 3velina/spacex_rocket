@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledTable = styled.div`
-  /* overflow-x: auto; */
-`;
+export const StyledTable = styled.div``;
 
 export const StyledTableContainer = styled.div`
-  /* min-width: 1100px; */
   overflow-x: scroll;
 
   div:first-child {
