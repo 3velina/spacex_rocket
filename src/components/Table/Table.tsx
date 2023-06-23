@@ -1,6 +1,6 @@
 import TableRow from '../TableRow';
 import HeaderRow from '../HeaderRow';
-import { StyledTableContainer } from './style';
+import { StyledNoResultsParagraph, StyledTableContainer } from './style';
 import { useEffect } from 'react';
 
 interface TableProps {
@@ -23,13 +23,15 @@ const Table = ({ headers, rows, searchTerm, setResultCount }: TableProps) => {
     setResultCount(filteredRows.length);
   }, [filteredRows]);
 
-  return (
+  return filteredRows.length > 0 ? (
     <StyledTableContainer>
       <HeaderRow headers={headers} />
       {filteredRows.map((row, rowIndex) => (
         <TableRow key={rowIndex} row={row} headers={headers} />
       ))}
     </StyledTableContainer>
+  ) : (
+    <StyledNoResultsParagraph>Nothing found...</StyledNoResultsParagraph>
   );
 };
 
